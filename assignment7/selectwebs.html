@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <script language="JavaScript">
+      function disp() {
+        ind = document.f1.webs.selectedIndex;
+        /*Comments : index of the selected Item */
+        newwin = window.open(
+          document.f1.webs.options[ind].value,
+          "newone",
+          "width=300; height=400;toolbar=no"
+        );
+      }
+    </script>
+  </head>
+  <body>
+    <form name="f1">
+      <select name="webs" onchange="disp()">
+        <option disabled selected>-- select an option --</option>
+        <option value="http://sparsh">http://sparsh</option>
+        <option value="http://kshop/">http://kshop</option>
+        <option value="http://172.21.20.155">http://172.21.20.155/</option>
+        <option value="http://enr.ad.Asreet.com">
+          http://enr.ad.Asreet.com/
+        </option>
+      </select>
+    </form>
+  </body>
+</html>

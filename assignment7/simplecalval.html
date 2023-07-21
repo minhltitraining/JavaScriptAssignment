@@ -1,0 +1,45 @@
+<script language="JavaScript">
+  function check() {
+    if (!isFinite(document.frm1.num1.value)) {
+      alert("Please eneter a number!");
+      return false;
+    }
+    if (!isFinite(document.frm1.num2.value)) {
+        alert("Please eneter a number!");
+        return false;
+      }
+  }
+
+  function add() {
+    check();
+    document.frm1.result.value =
+      parseInt(document.frm1.num1.value) + parseInt(document.frm1.num2.value);
+  }
+  function subtract() {
+    check();
+    document.frm1.result.value =
+      parseInt(document.frm1.num1.value) - parseInt(document.frm1.num2.value);
+  }
+  function mult() {
+    check();
+    document.frm1.result.value =
+      parseInt(document.frm1.num1.value) * parseInt(document.frm1.num2.value);
+  }
+  function div() {
+    check();
+    document.frm1.result.value =
+      parseInt(document.frm1.num1.value) / parseInt(document.frm1.num2.value);
+  }
+</script>
+<body>
+  <form name="frm1">
+    Num1 <input type="text" name="num1" /><br />
+    Num2 <input type="text" name="num2" /><br />
+    Result <input type="text" id="result" /> <br />
+
+    <button type="button" onclick="add()">Add</button>
+    <button type="button" onclick="subtract()">Substract</button>
+    <button type="button" onclick="mult()">Multiply</button>
+    <button type="button" onclick="div()">Divide</button>
+  </form>
+</body>

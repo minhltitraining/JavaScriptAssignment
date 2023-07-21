@@ -1,0 +1,20 @@
+Who is the owner of Microsoft?<br>
+<form name="frm1">
+    <input type="radio"/>Bill Clinton
+    <input type="radio"/>Bill Gate
+    <input type="radio"/>Mark Anderson
+    <input type="radio"/>Tim Berners Lee
+    <br>
+    <button onclick="check()">Check</button>
+</form>
+
+<script lang="JavaScript">
+    function check(){
+        if (document.frm1.elements[1].checked){
+            alert("You are correct");
+        } else {
+            alert("You are incorrect");
+        }
+    }
+
+</script>

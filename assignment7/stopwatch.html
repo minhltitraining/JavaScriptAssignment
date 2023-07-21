@@ -1,0 +1,24 @@
+<script language="JavaScript">
+    let startTime = 0;
+    var timer;
+    function startTimer() {
+     startTime+= 1;
+    
+    
+      document.getElementById("display").value = startTime;
+      
+    
+      timer = setTimeout(startTimer, 1000);
+    }
+    function stopTimer(){
+        clearTimeout(timer);
+    }
+</script>
+<body>
+  <form>
+    <b>Stop Watch</b><br />
+    <input  type="text"  name="time" id="display"/><br />
+    <button type="button" onclick="startTimer()">Start</button>
+    <button  type="button" onclick="stopTimer()">Stop</button>
+  </form>
+</body>
