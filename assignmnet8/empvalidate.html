@@ -1,0 +1,124 @@
+<script language="JavaScript">
+  function isEmpty(s) {
+    if (s == "") {
+      return 0;
+    } else {
+      return 1;
+    }
+  }
+  function onlySpaces(s) {
+    if (s.trim().length == 0) {
+      return 0;
+    } else {
+      return 1;
+    }
+  }
+  function onlyDigits(s) {
+    for (i = 0; i < s.length; i++) {
+      if (s.charCodeAt(i) < 48 || s.charCodeAt(i) > 57) {
+        return 0;
+      }
+    }
+    return 1;
+  }
+
+  function onlyAlphabets(s) {
+    s = s.toLowerCase();
+    if (s.trim().length == 0) {
+      return 0;
+    }
+    for (i = 0; i < s.length; i++) {
+      if (s.charCodeAt(i) < 97 || s.charCodeAt(i) > 122) {
+        return 0;
+      }
+    }
+    return 1;
+  }
+
+  function dateValidation() {
+    data = document.getElementById("empdate").value.split("-");
+    d = data[0];
+    m = data[1].toLowerCase();
+    y = data[2];
+    if (d.length == 0 || y.length == 0 ||(d) == 0 || onlyDigits(y) == 0) {
+      alert("date format error");
+      return 0;
+    }
+    d = parseInt(d);
+    y = parseInt(y);
+    if (d < 1 || d > 31 || y < 1900 || y > 2023) {
+      alert("date and year not correct");
+      return 0;
+    }
+
+    months = [
+      "jan",
+      "feb",
+      "mar",
+      "apr",
+      "may",
+      "jun",
+      "jul",
+      "aug",
+      "sep",
+      "oct",
+      "nov",
+      "dec",
+    ];
+    if (!months.includes(m)) {
+      alert("invalid month");
+      return 0;
+    }
+    return 1;
+  }
+
+  function validateEmpDetails() {
+    no = document.getElementById("empno").value;
+    if (isEmpty(no) == 0) {
+      alert("EmpNo cannot be empty");
+    } else {
+      if (onlySpaces(no) == 0) {
+        alert("EmpNo cannot contain only spaces");
+      } else {
+        if (onlyDigits(no) == 0) {
+          alert("EmpNo only contain digit");
+        } else {
+          name = document.getElementById("empname").value;
+          if (isEmpty(name) == 0) {
+            alert("Emp name cannot  be empty");
+          } else {
+            if (onlyAlphabets(name) == 0) {
+              alert("Name must only contain alphabet");
+            } else {
+              date = document.getElementById("empdate").value;
+              if (isEmpty(date) == 0) {
+                alert("date cannot be empty");
+              } else {
+                if (dateValidation(date) == 0) {
+                  alert("Date not proper format");
+                } else {
+                  newwin = window.open(
+                    "display.html",
+                    "newone",
+                    "width=300; height=400;toolbar=no"
+                  );
+                  return true;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    return false;
+  }
+</script>
+<form onsubmit="validateEmpDetails()">
+  Employee Number:
+  <input type="text" id="empno" /><br />
+  Employee Name:
+  <input type="text" id="empname" />
+  Date of Joining:
+  <input type="text" id="empdate" />
+  <button type="submit">Submit</button>
+</form>
